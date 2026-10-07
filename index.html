@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WW4JRN7');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Conferido · Artemis</title>
+<meta name="description" content="10 skills de Claude em português para quem lidera área de fábrica: conferência contra o ERP, documento em tabela, triagem de e-mail e comparativo de cotações. Grátis.">
+<meta property="og:title" content="Kit Conferido · 10 skills de Claude para a indústria">
+<meta property="og:description" content="As tarefas que sua área repete toda semana, devolvidas como arquivo pronto e conferidas contra o seu próprio trabalho antes de valer.">
+<meta property="og:site_name" content="Artemis">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,600;0,700;1,600&family=Cabin:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Paleta: rampas do Artemis Design System (tokens.json), em versão clara a pedido do Hélio (07/10/2026). */
+  :root {
+    --bg: #FFFFFF;
+    --ink: #09090B;
+    --g800: #3A3A3C;
+    --g700: #525254;
+    --g600: #6B6B6D;
+    --g500: #848485;
+    --g200: #CECECE;
+    --g100: #E6E6E6;
+    --soft: rgba(9,9,11,0.025);
+    --blue-100: #EBF2FF;
+    --blue-200: #D1E2FF;
+    --blue-500: #005EFF;
+    --blue-700: #004DD1;
+    --green-100: #E4FFF3;
+    --green-700: #118C56;
+    --orange-100: #FFF1EB;
+    --orange-300: #FFB48E;
+    --orange-700: #B84015;
+    --exo: "Exo", system-ui, sans-serif;
+    --cabin: "Cabin", system-ui, sans-serif;
+    --serif: "Instrument Serif", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--g700); font-family: var(--cabin); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 60px; }
+  .nw { white-space: nowrap; }
+
+  /* ---------- Dobra 1 ---------- */
+  .dobra1 { position: relative; padding: 36px 0 150px; overflow: hidden; }
+  .dobra1::before {
+    content: ""; position: absolute; right: -12%; top: -10%;
+    width: 64vw; height: 64vw; max-width: 820px; max-height: 820px;
+    background: radial-gradient(circle, rgba(0,94,255,0.09) 0%, rgba(0,94,255,0) 62%);
+    pointer-events: none;
+  }
+  .pattern {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 100px;
+    background: repeating-linear-gradient(115deg,
+      rgba(9,9,11,0) 0px, rgba(9,9,11,0) 26px,
+      rgba(9,9,11,0.10) 26px, rgba(9,9,11,0.10) 28px);
+    border-top: 1px solid var(--g100);
+  }
+  .topo { display: flex; align-items: center; justify-content: space-between; margin-bottom: 64px; position: relative; }
+  .topo img { height: 32px; width: auto; display: block; }
+  .tag { font-family: var(--serif); font-size: 22px; color: var(--ink); }
+
+  .grade { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 72px; align-items: center; position: relative; }
+  .chapeu {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-500);
+    margin-bottom: 22px;
+  }
+  .chapeu::before { content: ""; width: 8px; height: 8px; background: var(--blue-500); border-radius: 2px; }
+  h1 { font-family: var(--exo); font-weight: 700; color: var(--ink); font-size: clamp(38px, 5vw, 62px); line-height: 1.03; letter-spacing: -0.035em; margin-bottom: 24px; }
+  h1 em { font-style: normal; color: var(--blue-500); }
+  .sub { font-family: var(--exo); font-weight: 600; color: var(--g800); font-size: clamp(19px, 2vw, 23px); line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 24px; max-width: 34em; }
+  .desc { max-width: 36em; }
+  .desc + .desc { margin-top: 14px; }
+  .assinam { display: flex; align-items: center; gap: 14px; margin-top: 30px; }
+  .assinam .fotos { display: flex; }
+  .assinam .fotos img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--g100); }
+  .assinam .fotos img + img { margin-left: -10px; }
+  .assinam p { font-size: 14px; line-height: 1.4; color: var(--g600); }
+  .assinam p b { color: var(--ink); font-weight: 600; }
+
+  /* formulário */
+  .card { background: var(--bg); border: 1px solid var(--g100); border-radius: 20px; padding: 34px 32px 28px; box-shadow: 0 1px 2px rgba(9,9,11,0.04), 0 24px 60px -24px rgba(0,39,107,0.22); position: relative; }
+  .card h2 { font-family: var(--exo); font-weight: 700; color: var(--ink); font-size: 24px; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 6px; }
+  .card .apoio { font-size: 15px; color: var(--g600); margin-bottom: 22px; }
+  .campo { margin-bottom: 14px; }
+  .campo label { display: block; font-size: 13px; font-weight: 600; color: var(--g800); margin-bottom: 6px; }
+  .campo input, .campo select {
+    width: 100%; font: 400 16px/1.3 var(--cabin); color: var(--ink);
+    background: var(--bg); border: 1px solid var(--g200); border-radius: 12px;
+    padding: 13px 14px; outline: none; transition: border-color .15s, box-shadow .15s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .campo select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B6D' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+  }
+  .campo select:invalid { color: var(--g500); }
+  .campo input::placeholder { color: var(--g500); }
+  .campo input:focus, .campo select:focus { border-color: var(--blue-500); box-shadow: 0 0 0 3px var(--blue-100); }
+  .campo .erro { display: none; font-size: 13px; color: var(--orange-700); margin-top: 5px; }
+  .campo.invalido input, .campo.invalido select { border-color: var(--orange-700); }
+  .campo.invalido .erro { display: block; }
+  .robo { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .btn {
+    width: 100%; margin-top: 8px; cursor: pointer;
+    font: 700 17px/1 var(--cabin); color: #FFFFFF; background: var(--ink);
+    border: 0; border-radius: 999px; padding: 18px 28px;
+    box-shadow: 0 0 0 6px rgba(9,9,11,0.06);
+    transition: transform .12s, box-shadow .12s, background .12s;
+  }
+  .btn:hover { transform: translateY(-1px); background: var(--blue-500); box-shadow: 0 0 0 6px var(--blue-200); }
+  .btn:disabled { opacity: .6; cursor: default; transform: none; }
+  .requisito { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--g100); font-size: 13.5px; color: var(--g600); line-height: 1.5; }
+  .requisito b { color: var(--g800); font-weight: 600; }
+
+  /* ---------- Logos ---------- */
+  .logos { padding: 54px 0 58px; border-bottom: 1px solid var(--g100); }
+  .logos p { text-align: center; font-size: 15px; color: var(--g600); }
+  .logos p b { color: var(--ink); font-weight: 600; }
+  .logo-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 22px 44px; margin-top: 26px; }
+  .logo-row img { height: 24px; width: auto; filter: grayscale(1) brightness(.35); opacity: .7; transition: opacity .2s; }
+  .logo-row img:hover { opacity: 1; }
+  .logo-row .tall { height: 32px; } .logo-row .short { height: 19px; }
+  .logo-row .plug { display: flex; align-items: center; gap: 7px; font-family: var(--exo); font-weight: 700; font-size: 18px; color: var(--g800); opacity: .7; letter-spacing: .02em; }
+  .logo-row .plug img { height: 22px; opacity: 1; }
+
+  /* ---------- Demo ---------- */
+  .demo-sec { padding: 96px 0 100px; background: var(--soft); border-bottom: 1px solid var(--g100); }
+  .sec-head { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: end; margin-bottom: 40px; }
+  .rotulo { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+  .rotulo::after { content: ""; flex: 1; height: 1px; background: var(--g100); }
+  h2.tit { font-family: var(--exo); font-weight: 700; color: var(--ink); font-size: clamp(30px, 3.4vw, 42px); line-height: 1.08; letter-spacing: -0.03em; }
+  h2.tit em { font-style: normal; color: var(--blue-500); }
+  .sec-head .lado { color: var(--g700); }
+
+  .janela { background: var(--bg); border: 1px solid var(--g100); border-radius: 20px; overflow: hidden; box-shadow: 0 30px 70px -36px rgba(0,39,107,0.28); }
+  .barra { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid var(--g100); font: 500 12.5px/1 var(--mono); color: var(--g600); }
+  .barra .pts { display: flex; gap: 6px; }
+  .barra .pts i { width: 10px; height: 10px; border-radius: 50%; background: var(--g100); display: block; }
+  .barra .cmd { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .barra .cmd b { color: var(--ink); font-weight: 500; }
+  .barra .st { color: var(--blue-500); white-space: nowrap; }
+  .barra .st.ok { color: var(--green-700); }
+
+  .corpo { display: grid; grid-template-columns: 1fr 1fr 1.05fr; }
+  .fonte, .saida { padding: 22px 22px 24px; }
+  .fonte + .fonte { border-left: 1px solid var(--g100); }
+  .saida { border-left: 1px solid var(--g100); background: linear-gradient(180deg, var(--blue-100) 0%, rgba(235,242,255,0) 70%); }
+  .arq { font: 500 12.5px/1.2 var(--mono); color: var(--ink); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .arq::before { content: ""; width: 12px; height: 14px; border: 1.5px solid var(--g500); border-radius: 2px; flex: none; }
+  .orig { font-size: 12.5px; color: var(--g500); margin-bottom: 14px; }
+  table { width: 100%; border-collapse: collapse; font: 400 13px/1.2 var(--mono); color: var(--g800); }
+  th { text-align: left; font-weight: 500; color: var(--g500); font-size: 11.5px; padding: 0 6px 8px; border-bottom: 1px solid var(--g100); }
+  td { padding: 9px 6px; border-bottom: 1px solid var(--g100); position: relative; transition: background .35s, color .35s; }
+  td.n, th.n { text-align: right; }
+  tr.lendo td { background: var(--blue-100); }
+  tr.bate td { color: var(--g500); }
+  tr.bate td:first-child::after { content: "✓"; position: absolute; left: -12px; color: var(--green-700); font-size: 11px; }
+  td.dif.marca { background: var(--orange-100); color: var(--orange-700); font-weight: 500; }
+  tr.orfa.marca td { background: var(--blue-100); color: var(--blue-700); }
+  tr.total.marca td { color: var(--g500); text-decoration: line-through; }
+
+  .saida h3 { font: 500 12.5px/1.2 var(--mono); color: var(--ink); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .saida h3::before { content: ""; width: 12px; height: 14px; border: 1.5px solid var(--blue-500); border-radius: 2px; background: var(--blue-200); flex: none; }
+  .saida .orig { margin-bottom: 16px; }
+  .res { background: var(--bg); border: 1px solid var(--g100); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; opacity: 0; transform: translateY(8px); transition: opacity .45s, transform .45s; }
+  .res.on { opacity: 1; transform: none; }
+  .res .k { font: 500 11px/1 var(--mono); color: var(--g500); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 7px; display: flex; justify-content: space-between; gap: 8px; }
+  .res .v { font-size: 14px; line-height: 1.4; color: var(--ink); }
+  .res .v s { color: var(--g500); }
+  .pill { font: 500 10.5px/1 var(--mono); padding: 4px 7px; border-radius: 999px; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+  .pill.lj { background: var(--orange-100); color: var(--orange-700); }
+  .pill.az { background: var(--blue-100); color: var(--blue-700); }
+  .pill.cz { background: var(--g100); color: var(--g700); }
+  .rodape-demo { display: flex; gap: 10px 26px; flex-wrap: wrap; align-items: baseline; padding: 16px 22px; border-top: 1px solid var(--g100); font-size: 13.5px; color: var(--g600); }
+  .rodape-demo b { color: var(--ink); font-weight: 600; }
+  .rodape-demo code { font: 400 12.5px var(--mono); color: var(--g800); }
+  .legenda { margin-top: 18px; font-size: 14px; color: var(--g600); max-width: 62em; }
+
+  /* ---------- Dobra 2 ---------- */
+  .dobra2 { padding: 100px 0 90px; }
+  .d2grade { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: start; }
+  .d2grade h2.tit { margin-bottom: 22px; }
+  .sobre p { margin-bottom: 14px; }
+  .selo { display: flex; gap: 14px; align-items: center; margin-top: 26px; padding: 16px 18px; border: 1px solid var(--g100); border-radius: 14px; }
+  .selo .ico { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--blue-500); display: grid; place-items: center; }
+  .selo .ico svg { width: 22px; height: 22px; }
+  .selo p { margin: 0; font-size: 15px; color: var(--ink); line-height: 1.45; }
+  .selo p span { display: block; font-size: 13px; color: var(--g600); }
+
+  .carta { position: relative; background: var(--bg); border: 1px solid var(--g100); border-radius: 20px; padding: 42px 42px 34px; box-shadow: 0 30px 70px -40px rgba(0,39,107,0.25); overflow: hidden; }
+  .carta::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--blue-500); }
+  .carta .abre { font-family: var(--serif); font-style: italic; font-size: 27px; color: var(--ink); margin-bottom: 18px; line-height: 1.25; }
+  .carta p { margin-bottom: 14px; }
+  .carta p strong { color: var(--ink); font-weight: 600; }
+  .assinaturas { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--g100); }
+  .assina { display: flex; gap: 14px; align-items: flex-start; }
+  .assina img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 1px var(--g100); }
+  .assina .rubrica { white-space: nowrap; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); line-height: 1; margin-bottom: 8px; }
+  .assina .cargo { font-size: 13.5px; color: var(--g600); line-height: 1.45; }
+  .assina .cargo .form { color: var(--g500); }
+
+  .cta2 { margin-top: 54px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 28px 32px; border-radius: 20px; background: var(--ink); }
+  .cta2 p { font-family: var(--exo); font-weight: 600; font-size: 21px; color: #FFFFFF; letter-spacing: -0.015em; }
+  .cta2 a { font: 700 16px/1 var(--cabin); color: var(--ink); background: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 17px 30px; box-shadow: 0 0 0 6px rgba(255,255,255,0.12); }
+
+  footer { padding: 34px 0 48px; border-top: 1px solid var(--g100); font-size: 13px; color: var(--g500); }
+  footer .linha { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; }
+  footer img { height: 22px; width: auto; opacity: .85; }
+  footer .disc { max-width: 62em; line-height: 1.55; }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 1020px) {
+    .corpo { grid-template-columns: 1fr 1fr; }
+    .saida { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--g100); }
+  }
+  @media (max-width: 960px) {
+    .grade, .d2grade, .sec-head { grid-template-columns: 1fr; gap: 40px; }
+    .sec-head { gap: 16px; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .dobra1 { padding: 24px 0 120px; }
+    .topo { margin-bottom: 40px; }
+    .topo img { height: 26px; }
+    .tag { font-size: 18px; }
+    .card { padding: 26px 20px 22px; }
+    .logo-row { gap: 18px 28px; }
+    .logo-row img { height: 20px; } .logo-row .tall { height: 26px; }
+    .demo-sec { padding: 64px 0 70px; }
+    .corpo { grid-template-columns: 1fr; }
+    .fonte + .fonte { border-left: 0; border-top: 1px solid var(--g100); }
+    .fonte, .saida { padding: 18px 16px 20px; }
+    table { font-size: 12.5px; }
+    .barra .st { display: none; }
+    .carta { padding: 30px 22px 24px; }
+    .assinaturas { grid-template-columns: 1fr; }
+    .dobra2 { padding: 70px 0 64px; }
+    .cta2 { padding: 22px; }
+    .cta2 a { width: 100%; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) { .res { transition: none; } td { transition: none; } }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW4JRN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===================== DOBRA 1 ===================== -->
+<section class="dobra1">
+  <div class="wrap">
+    <div class="topo">
+      <img src="assets/artemis-lockup-dark.svg" alt="Artemis">
+      <span class="tag">Kit Conferido</span>
+    </div>
+
+    <div class="grade">
+      <div>
+        <span class="chapeu">Grátis · 10 skills de Claude para a indústria</span>
+        <h1>Sua área para de conferir planilha contra o ERP <em>na mão</em></h1>
+        <p class="sub">Dez skills de Claude em português que fazem as tarefas manuais da semana de quem lidera produção, PCP, qualidade, manutenção ou suprimentos.</p>
+        <p class="desc">Você entrega os dois arquivos e recebe só as divergências. Entrega o PDF escaneado e recebe a tabela, com a lista do que precisa de olho humano. Entrega as cotações do jeito que chegaram e recebe o comparativo com a unidade acertada.</p>
+        <p class="desc">Cada skill roda primeiro num caso que você já fez à mão. Só passa a valer no trabalho depois que o resultado bate com o seu.</p>
+        <div class="assinam">
+          <span class="fotos">
+            <img src="assets/willy.jpg" alt="Willy Azevedo">
+            <img src="assets/patrick.jpg" alt="Patrick Neuhaus">
+          </span>
+          <p>Por <b>Willy Azevedo</b> e <b>Patrick Neuhaus</b><br>engenharia de IA da Artemis</p>
+        </div>
+      </div>
+
+      <div class="card" id="formulario">
+        <h2>Receba o kit no seu e-mail</h2>
+        <p class="apoio">A pasta com as 10 skills e o passo a passo de instalação.</p>
+        <form class="captura" novalidate>
+          <div class="campo" data-campo="nome">
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome">
+            <span class="erro">Escreva seu nome.</span>
+          </div>
+          <div class="campo" data-campo="email">
+            <label for="f-email">E-mail corporativo</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="voce@empresa.com.br">
+            <span class="erro">Confira o e-mail.</span>
+          </div>
+          <div class="campo" data-campo="empresa">
+            <label for="f-empresa">Empresa</label>
+            <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Onde você trabalha">
+            <span class="erro">Escreva o nome da empresa.</span>
+          </div>
+          <div class="campo" data-campo="area">
+            <label for="f-area">Sua área</label>
+            <select id="f-area" name="area" required>
+              <option value="" disabled selected>Escolha</option>
+              <option>Produção</option>
+              <option>PCP</option>
+              <option>Qualidade</option>
+              <option>Manutenção</option>
+              <option>Engenharia</option>
+              <option>Suprimentos e compras</option>
+              <option>Logística</option>
+              <option>Outra</option>
+            </select>
+            <span class="erro">Escolha a sua área.</span>
+          </div>
+          <div class="robo" aria-hidden="true">
+            <label for="f-site">Site da empresa</label>
+            <input id="f-site" name="empresa_site" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Quero o Kit Conferido</button>
+        </form>
+        <p class="requisito"><b>Antes de pedir:</b> o kit roda no Claude Code em plano pago, com Python, numa máquina onde você possa instalar programa. Ele não entra no ERP. O export continua com você.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pattern" aria-hidden="true"></div>
+</section>
+
+<!-- ===================== LOGOS ===================== -->
+<div class="logos">
+  <div class="wrap">
+    <p><b>Skills e agentes validados no dia a dia da Artemis</b>, em empresas como</p>
+    <div class="logo-row">
+      <img src="assets/logos/athie.svg" alt="Athie Wohnrath">
+      <img src="assets/logos/gascat.png" alt="Gascat" class="tall">
+      <img src="assets/logos/orsegups.svg" alt="Orsegups" class="tall">
+      <img src="assets/logos/marine.svg" alt="Marine Telematics" class="short">
+      <img src="assets/logos/plusiot-dark.png" alt="Plus IoT" class="short">
+      <img src="assets/logos/next-dark.png" alt="Next Shipping" class="tall">
+      <img src="assets/logos/jrg.png" alt="JRG Corp">
+      <img src="assets/logos/propspeed.png" alt="Propspeed" class="tall">
+      <span class="plug"><img src="assets/logos/plugue-dark.png" alt="">Plugue</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEMO ===================== -->
+<section class="demo-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="rotulo">Uma rodada de verdade</div>
+        <h2 class="tit">A planilha do almoxarifado contra o export do ERP. <em>Sobra o que não bate.</em></h2>
+      </div>
+      <p class="lado">Os dois arquivos estão no formato em que costumam chegar: um com vírgula e data brasileira, outro com ponto e zero à esquerda. A skill trata o formato antes de comparar. Na lista final fica só a divergência real, com a linha de cada arquivo.</p>
+    </div>
+
+    <div class="janela" id="demo" aria-label="Demonstração da skill de conferência entre duas fontes">
+      <div class="barra">
+        <span class="pts"><i></i><i></i><i></i></span>
+        <span class="cmd">Claude Code · <b>conferência entre duas fontes</b> · “confere a planilha do almoxarifado contra o export do sistema”</span>
+        <span class="st" id="demo-st">conferindo…</span>
+      </div>
+      <div class="corpo">
+        <div class="fonte">
+          <p class="arq">planilha-almoxarifado.csv</p>
+          <p class="orig">Excel da área · vírgula · dd/mm</p>
+          <table>
+            <tr><th>Código</th><th class="n">Saldo</th><th>Últ. mov.</th></tr>
+            <tr data-i="0"><td>123</td><td class="n">10,5</td><td>03/09/2026</td></tr>
+            <tr data-i="1"><td>456</td><td class="n">4</td><td>4/9/2026</td></tr>
+            <tr data-i="2"><td>7890</td><td class="n dif">120</td><td>05/09/26</td></tr>
+            <tr data-i="3"><td>1122</td><td class="n">1.250</td><td class="dif">06/09/2026</td></tr>
+            <tr data-i="4" class="orfa"><td>3344</td><td class="n">980</td><td>06/09/2026</td></tr>
+            <tr data-i="5" class="total"><td>TOTAL</td><td class="n">2364,5</td><td></td></tr>
+          </table>
+        </div>
+        <div class="fonte">
+          <p class="arq">export-erp.csv</p>
+          <p class="orig">Relatório do sistema · ponto · ISO</p>
+          <table>
+            <tr><th>codigo</th><th class="n">saldo</th><th>ult_mov</th></tr>
+            <tr data-i="0"><td>000123</td><td class="n">10.50</td><td>2026-09-03</td></tr>
+            <tr data-i="1"><td>000456</td><td class="n">4.00</td><td>2026-09-04</td></tr>
+            <tr data-i="2"><td>007890</td><td class="n dif">112.00</td><td>2026-09-05</td></tr>
+            <tr data-i="3"><td>001122</td><td class="n">1250.00</td><td class="dif">2026-09-08</td></tr>
+            <tr data-i="4" class="orfa"><td>005566</td><td class="n">300.00</td><td>2026-09-07</td></tr>
+          </table>
+        </div>
+        <div class="saida">
+          <h3>o que a skill gravou</h3>
+          <p class="orig">4 arquivos · só o que precisa do seu olho</p>
+          <div class="res" data-step="2">
+            <p class="k">divergencias.csv <span class="pill lj">saldo</span></p>
+            <p class="v">7890 · 120 na planilha contra 112.00 no ERP</p>
+          </div>
+          <div class="res" data-step="3">
+            <p class="k">divergencias.csv <span class="pill lj">suspeita</span></p>
+            <p class="v">1122 · 06/09/2026 contra 2026-09-08. Pode ser 6 de setembro ou 9 de junho: a skill avisa em vez de chutar.</p>
+          </div>
+          <div class="res" data-step="4">
+            <p class="k">so-na-fonte-A · so-na-fonte-B <span class="pill az">órfãs</span></p>
+            <p class="v">3344 só na planilha · 005566 só no ERP</p>
+          </div>
+          <div class="res" data-step="5">
+            <p class="k">linhas-descartadas.csv <span class="pill cz">fora</span></p>
+            <p class="v"><s>linha 7, TOTAL</s> · confere com a soma das linhas</p>
+          </div>
+        </div>
+      </div>
+      <div class="rodape-demo">
+        <span><b>Fora da lista, porque é só formato:</b></span>
+        <code>123 = 000123</code><code>10,5 = 10.50</code><code>1.250 = 1250.00</code><code>4/9/2026 = 2026-09-04</code>
+      </div>
+    </div>
+    <p class="legenda">Rodada real da skill, com uma planilha de almoxarifado e um export de ERP montados para o teste. O kit vem com esse par de arquivos, para você rodar antes de usar os seus.</p>
+  </div>
+</section>
+
+<!-- ===================== DOBRA 2 ===================== -->
+<section class="dobra2">
+  <div class="wrap">
+    <div class="rotulo">Quem fez</div>
+    <div class="d2grade">
+      <div class="sobre">
+        <h2 class="tit">Escrito pela engenharia que automatiza <em>operação industrial</em></h2>
+        <p>A Artemis transforma o conhecimento técnico que vive na cabeça do especialista em sistema que decide com a mesma qualidade. Validação de documento de terceiro, quantitativo de planta, codificação de item por parâmetro, alocação de carga por restrição.</p>
+        <p>Todo projeto nosso começa pelo mesmo trabalho que está neste kit: conferir, extrair e medir o que a área faz hoje, antes de automatizar qualquer coisa.</p>
+        <div class="selo">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg>
+          </span>
+          <p>Nenhum dado de cliente dentro do kit
+            <span>E uma página inteira dizendo o que não subir para a IA, pronta para levar ao seu TI.</span></p>
+        </div>
+      </div>
+
+      <div class="carta">
+        <p class="abre">Uma nota antes de você baixar.</p>
+        <p>Em toda fábrica que visitamos, vimos a mesma cena: alguém experiente, ocupado e caro passando a tarde a comparar uma planilha da área com o relatório do sistema, linha por linha.</p>
+        <p>Escrevemos estas dez skills para essa tarde. Elas pegam a tarefa e devolvem o arquivo pronto. E <strong>recusam o resultado quando não dá para confiar nele</strong>: a conferência não fecha se deixou alguma linha fora da comparação, e o comparativo não ranqueia item cuja unidade não foi resolvida.</p>
+        <p>Rode no caso mais chato da sua semana. Se bater com o que você fez à mão, ele é seu.</p>
+        <div class="assinaturas">
+          <div class="assina">
+            <img src="assets/willy.jpg" alt="Willy Azevedo">
+            <div>
+              <div class="rubrica">Willy Azevedo</div>
+              <div class="cargo">Tech Leader de IA<br><span class="form">Engenharia de Materiais · Unesp</span></div>
+            </div>
+          </div>
+          <div class="assina">
+            <img src="assets/patrick.jpg" alt="Patrick Neuhaus">
+            <div>
+              <div class="rubrica">Patrick Neuhaus</div>
+              <div class="cargo">Head de Automações com IA<br><span class="form">Engenheiro Mecânico pela Unesp</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta2">
+      <p>As 10 skills, grátis, no seu e-mail.</p>
+      <a href="#formulario">Quero o Kit Conferido</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="linha">
+      <img src="assets/artemis-lockup-dark.svg" alt="Artemis">
+      <span>© 2026 Artemis</span>
+    </div>
+    <p class="disc">Claude é marca da Anthropic, que não tem vínculo com este kit. As marcas citadas pertencem a empresas atendidas pela Artemis e não endossam este kit. Nenhuma skill substitui responsabilidade técnica, decisão de auditoria ou aprovação de documento no sistema de gestão da sua empresa. Este site não faz parte do Facebook/Meta ou Instagram, nem é endossado por eles.</p>
+  </div>
+</footer>
+
+<script>
+/* Demo: percorre as linhas, marca o que bate, o que diverge e o que sobra; depois monta a saída. Em loop. */
+(function () {
+  var demo = document.getElementById("demo");
+  if (!demo) return;
+  var st = document.getElementById("demo-st");
+  var rows = function (i) { return demo.querySelectorAll('tr[data-i="' + i + '"]'); };
+  var res = demo.querySelectorAll(".res");
+  var reduz = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fx = { 0: "bate", 1: "bate", 2: "dif", 3: "dif", 4: "orfa", 5: "total" };
+
+  function aplica(i) {
+    rows(i).forEach(function (tr) {
+      tr.classList.remove("lendo");
+      if (fx[i] === "bate") tr.classList.add("bate");
+      if (fx[i] === "dif") tr.querySelectorAll(".dif").forEach(function (td) { td.classList.add("marca"); });
+      if (fx[i] === "orfa" || fx[i] === "total") tr.classList.add("marca");
+    });
+  }
+  function mostra(step) { res.forEach(function (r) { if (+r.getAttribute("data-step") === step) r.classList.add("on"); }); }
+  function limpa() {
+    demo.querySelectorAll("tr").forEach(function (tr) { tr.classList.remove("lendo", "bate", "marca"); });
+    demo.querySelectorAll("td.marca").forEach(function (td) { td.classList.remove("marca"); });
+    res.forEach(function (r) { r.classList.remove("on"); });
+    st.textContent = "conferindo…"; st.classList.remove("ok");
+  }
+  function final() {
+    for (var i = 0; i <= 5; i++) { aplica(i); mostra(i); }
+    st.textContent = "4 arquivos gravados"; st.classList.add("ok");
+  }
+  if (reduz) { final(); return; }
+
+  var t = [];
+  function ciclo() {
+    limpa();
+    var passo = 900;
+    for (var i = 0; i <= 5; i++) (function (i) {
+      t.push(setTimeout(function () { rows(i).forEach(function (tr) { tr.classList.add("lendo"); }); }, 400 + i * passo));
+      t.push(setTimeout(function () { aplica(i); mostra(i); }, 400 + i * passo + 600));
+    })(i);
+    t.push(setTimeout(function () { st.textContent = "4 arquivos gravados"; st.classList.add("ok"); }, 400 + 6 * passo));
+    t.push(setTimeout(ciclo, 400 + 6 * passo + 5200));
+  }
+  // só anima quando estiver na tela
+  var rodando = false;
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && !rodando) { rodando = true; ciclo(); }
+        if (!e.isIntersecting && rodando) { rodando = false; t.forEach(clearTimeout); t = []; final(); }
+      });
+    }, { threshold: 0.35 }).observe(demo);
+  } else { ciclo(); }
+  final();
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var CONFIG = {
+    formId: "kit-conferido",
+    redirect: "obrigado.html",
+    // PREENCHER ANTES DE PUBLICAR: webhook do n8n → meta-hub (Kommo, funil Studio Artemis) + Mautic (e-mail que entrega o kit).
+    // Vazio = o lead NÃO é gravado em lugar nenhum.
+    webhook: ""
+  };
+
+  var EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var params = new URLSearchParams(location.search);
+  function utm(k) { return params.get(k) || ""; }
+
+  var redirecionou = false;
+  function go() {
+    if (redirecionou) return;
+    redirecionou = true;
+    location.href = CONFIG.redirect + (location.search || "");
+  }
+
+  function valor(form, nome) {
+    var el = form.elements[nome];
+    return el ? (el.value || "").trim() : "";
+  }
+
+  function valida(form) {
+    var ok = true, primeiro = null;
+    form.querySelectorAll(".campo").forEach(function (c) {
+      var nome = c.getAttribute("data-campo");
+      var v = valor(form, nome);
+      var invalido;
+      if (nome === "email") invalido = !EMAIL_OK.test(v);
+      else if (nome === "area") invalido = !v;
+      else invalido = v.length < 2;
+      c.classList.toggle("invalido", invalido);
+      if (invalido) { ok = false; if (!primeiro) primeiro = c; }
+    });
+    if (primeiro) {
+      var foco = primeiro.querySelector("input, select");
+      if (foco) foco.focus();
+    }
+    return ok;
+  }
+
+  var enviado = false;
+  function enviar(form) {
+    if (!valida(form)) return;                       // formulário inválido: nenhum evento, nenhum redirect
+    if (enviado) return;
+    enviado = true;
+    var btn = form.querySelector(".btn");
+    btn.disabled = true; btn.textContent = "Enviando…";
+
+    var payload = {
+      nome: valor(form, "nome"),
+      email: valor(form, "email").toLowerCase(),
+      empresa: valor(form, "empresa"),
+      area: valor(form, "area"),
+      form_id: CONFIG.formId,
+      external_id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2),
+      pagina: location.pathname,
+      url: location.href.split("#")[0],
+      utm_source: utm("utm_source"),
+      utm_medium: utm("utm_medium"),
+      utm_campaign: utm("utm_campaign"),
+      utm_content: utm("utm_content"),
+      utm_term: utm("utm_term"),
+      empresa_site: valor(form, "empresa_site"),     // armadilha de robô: gente de verdade deixa vazio
+      teste: params.get("teste") === "artemis"
+    };
+
+    // O envio do lead nunca segura o redirecionamento: dispara e segue.
+    if (CONFIG.webhook) {
+      try {
+        fetch(CONFIG.webhook, {
+          method: "POST", mode: "no-cors", keepalive: true,
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify(payload)
+        }).catch(function () {});
+      } catch (e) {}
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "lead_gerado",
+      form_id: CONFIG.formId,
+      pagina: location.pathname,
+      area: payload.area,
+      utm_source: payload.utm_source,
+      utm_medium: payload.utm_medium,
+      utm_campaign: payload.utm_campaign,
+      eventCallback: go,                             // redireciona assim que as tags dispararem
+      eventTimeout: 1500                             // ...ou em 1,5s, se o GTM travar
+    });
+    setTimeout(go, 1800);                            // rede lenta ou GTM bloqueado nunca segura a conversão
+  }
+
+  document.querySelectorAll("form.captura").forEach(function (form) {
+    form.addEventListener("submit", function (ev) { ev.preventDefault(); enviar(form); });
+    form.querySelectorAll("input, select").forEach(function (el) {
+      function limpa() { var c = el.closest(".campo"); if (c) c.classList.remove("invalido"); }
+      el.addEventListener("input", limpa);
+      el.addEventListener("change", limpa);
+    });
+  });
+})();
+</script>
+</body>
+</html>
