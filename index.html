@@ -537,9 +537,13 @@
   var CONFIG = {
     formId: "kit-conferido",
     redirect: "obrigado.html",
-    // PREENCHER ANTES DE PUBLICAR: webhook do n8n → meta-hub (Kommo, funil Studio Artemis) + Mautic (e-mail que entrega o kit).
-    // Vazio = o lead NÃO é gravado em lugar nenhum.
-    webhook: ""
+    // Formulário 6 do Mautic → segmento 77 (Studio Artemis · Kit Conferido) → campanha 19, que entrega o kit (e-mail 180).
+    // E-mail corporativo cai também no segmento 78 (qualificados), de onde o time entra em contato. Envio direto, sem chave no JavaScript.
+    mautic: {
+      url: "https://conteudos.studioartemis.co/form/submit?formId=6",
+      id: "6",
+      alias: "studio_art"
+    }
   };
 
   var EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -604,12 +608,19 @@
     };
 
     // O envio do lead nunca segura o redirecionamento: dispara e segue.
-    if (CONFIG.webhook) {
+    if (!payload.empresa_site) {                     // robô preencheu a armadilha: não grava
       try {
-        fetch(CONFIG.webhook, {
-          method: "POST", mode: "no-cors", keepalive: true,
-          headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body: JSON.stringify(payload)
+        var campos = new URLSearchParams();
+        campos.set("mauticform[formId]", CONFIG.mautic.id);
+        campos.set("mauticform[formName]", CONFIG.mautic.alias);
+        campos.set("mauticform[nome]", payload.nome);
+        campos.set("mauticform[email]", payload.email);
+        campos.set("mauticform[empresa]", payload.empresa);
+        campos.set("mauticform[area]", payload.area);
+        campos.set("mauticform[return]", "");
+        campos.set("mauticform[messenger]", "1");
+        fetch(CONFIG.mautic.url + (location.search ? "&" + location.search.slice(1) : ""), {
+          method: "POST", mode: "no-cors", keepalive: true, body: campos
         }).catch(function () {});
       } catch (e) {}
     }
