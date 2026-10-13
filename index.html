@@ -291,6 +291,11 @@
             <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="voce@empresa.com.br">
             <span class="erro">Confira o e-mail.</span>
           </div>
+          <div class="campo" data-campo="telefone">
+            <label for="f-telefone">Telefone (WhatsApp)</label>
+            <input id="f-telefone" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 91234-5678" maxlength="16">
+            <span class="erro">Confira o telefone, com DDD.</span>
+          </div>
           <div class="campo" data-campo="empresa">
             <label for="f-empresa">Empresa</label>
             <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Onde você trabalha">
@@ -569,6 +574,7 @@
       var v = valor(form, nome);
       var invalido;
       if (nome === "email") invalido = !EMAIL_OK.test(v);
+      else if (nome === "telefone") invalido = !/^\d{10,11}$/.test(v.replace(/\D/g, ""));
       else if (nome === "area") invalido = !v;
       else invalido = v.length < 2;
       c.classList.toggle("invalido", invalido);
@@ -592,6 +598,7 @@
     var payload = {
       nome: valor(form, "nome"),
       email: valor(form, "email").toLowerCase(),
+      telefone: valor(form, "telefone").replace(/\D/g, ""),
       empresa: valor(form, "empresa"),
       area: valor(form, "area"),
       form_id: CONFIG.formId,
@@ -615,6 +622,7 @@
         campos.set("mauticform[formName]", CONFIG.mautic.alias);
         campos.set("mauticform[nome]", payload.nome);
         campos.set("mauticform[email]", payload.email);
+        campos.set("mauticform[telefone]", payload.telefone);
         campos.set("mauticform[empresa]", payload.empresa);
         campos.set("mauticform[area]", payload.area);
         campos.set("mauticform[return]", "");
@@ -639,6 +647,20 @@
     });
     setTimeout(go, 1800);                            // rede lenta ou GTM bloqueado nunca segura a conversão
   }
+
+  // Máscara do telefone: (11) 91234-5678 ou (11) 1234-5678.
+  function mascaraTelefone(el) {
+    var d = el.value.replace(/\D/g, "").slice(0, 11);
+    if (d.length > 10) el.value = "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+    else if (d.length > 6) el.value = "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
+    else if (d.length > 2) el.value = "(" + d.slice(0, 2) + ") " + d.slice(2);
+    else el.value = d.length ? "(" + d : "";
+  }
+  document.querySelectorAll('input[name="telefone"]').forEach(function (el) {
+    // Apagando, a máscara não se reaplica: senão o backspace trava no ") " e no "-".
+    el.addEventListener("input", function (ev) { if (!/^delete/.test(ev.inputType || "")) mascaraTelefone(el); });
+    el.addEventListener("blur", function () { mascaraTelefone(el); });
+  });
 
   document.querySelectorAll("form.captura").forEach(function (form) {
     form.addEventListener("submit", function (ev) { ev.preventDefault(); enviar(form); });
