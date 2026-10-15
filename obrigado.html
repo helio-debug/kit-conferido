@@ -6,7 +6,7 @@
 <!-- End Google Tag Manager -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kit a caminho · Artemis</title>
+<title>Baixe o Kit Conferido · Artemis</title>
 <meta name="description" content="10 skills de Claude em português para quem lidera área de fábrica: conferência contra o ERP, documento em tabela, triagem de e-mail e comparativo de cotações. Grátis.">
 <meta property="og:title" content="Kit Conferido · 10 skills de Claude para a indústria">
 <meta property="og:description" content="As tarefas que sua área repete toda semana, devolvidas como arquivo pronto e conferidas contra o seu próprio trabalho antes de valer.">
@@ -214,6 +214,41 @@
   footer img { height: 22px; width: auto; opacity: .85; }
   footer .disc { max-width: 62em; line-height: 1.55; }
 
+
+  /* ---------- Obrigado: download + instalação ---------- */
+  .obg { max-width: 760px; position: relative; }
+  .baixar {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    width: 100%; max-width: 560px; margin: 8px 0 14px;
+    font: 700 22px/1 var(--exo); letter-spacing: -0.01em; color: #FFFFFF; text-decoration: none;
+    background: var(--blue-500); border-radius: 999px; padding: 24px 34px;
+    box-shadow: 0 0 0 8px var(--blue-200), 0 24px 50px -20px rgba(0,94,255,0.55);
+    transition: transform .12s, background .12s;
+  }
+  .baixar:hover { transform: translateY(-2px); background: var(--blue-700); }
+  .baixar svg { width: 26px; height: 26px; flex: none; }
+  .arquivo { font-size: 14px; color: var(--g600); margin-bottom: 8px; }
+  .arquivo b { color: var(--g800); font-weight: 600; }
+  .seguro { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--g600); max-width: 560px; margin-bottom: 44px; }
+  .seguro svg { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+  .passos { border: 1px solid var(--g100); border-radius: 20px; padding: 30px 32px 28px; background: var(--bg); box-shadow: 0 30px 70px -40px rgba(0,39,107,0.25); }
+  .passos h2 { font-family: var(--exo); font-weight: 700; color: var(--ink); font-size: 24px; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .passos .apoio { font-size: 15px; color: var(--g600); margin-bottom: 22px; }
+  .passos ol { list-style: none; counter-reset: p; }
+  .passos li { counter-increment: p; position: relative; padding-left: 46px; margin-bottom: 20px; color: var(--g700); }
+  .passos li::before { content: counter(p); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--blue-100); color: var(--blue-700); font: 700 15px/30px var(--exo); text-align: center; }
+  .passos li b { color: var(--ink); font-weight: 600; }
+  .pedido { position: relative; margin-top: 10px; background: var(--soft); border: 1px solid var(--g100); border-radius: 12px; padding: 14px 16px 14px; font: 400 14px/1.5 var(--mono); color: var(--ink); }
+  .copiar { margin-top: 10px; cursor: pointer; font: 600 14px/1 var(--cabin); color: var(--ink); background: var(--bg); border: 1px solid var(--g200); border-radius: 999px; padding: 10px 16px; }
+  .copiar:hover { border-color: var(--blue-500); color: var(--blue-700); }
+  .depois { margin-top: 6px; padding-top: 18px; border-top: 1px solid var(--g100); font-size: 15px; }
+  .depois code { font: 400 14px var(--mono); color: var(--ink); background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+  @media (max-width: 600px) {
+    .baixar { font-size: 19px; padding: 21px 22px; }
+    .passos { padding: 24px 18px 22px; }
+    .passos li { padding-left: 40px; }
+  }
+
   /* ---------- Responsivo ---------- */
   @media (max-width: 1020px) {
     .corpo { grid-template-columns: 1fr 1fr; }
@@ -252,16 +287,54 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW4JRN7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<section class="dobra1" style="min-height:100vh">
+<section class="dobra1">
   <div class="wrap">
     <div class="topo"><img src="assets/artemis-lockup-dark.svg" alt="Artemis"><span class="tag">Kit Conferido</span></div>
-    <span class="chapeu">Pedido recebido</span>
-    <h1>O kit está a caminho do <em>seu e-mail</em></h1>
-    <p class="sub">Em alguns minutos chega a pasta com as 10 skills e o passo a passo de instalação.</p>
-    <p class="desc">Se não aparecer na caixa de entrada, procure em Promoções ou Spam e marque como seguro. Comece pela conferência entre duas fontes: rode no par de arquivos de teste que vem no kit e depois num caso que você já fez à mão nesta semana.</p>
-    <div class="assinam"><span class="fotos"><img src="assets/willy.jpg" alt="Willy Azevedo"><img src="assets/patrick.jpg" alt="Patrick Neuhaus"></span><p>Por <b>Willy Azevedo</b> e <b>Patrick Neuhaus</b><br>engenharia de IA da Artemis</p></div>
+    <div class="obg">
+      <span class="chapeu">Pedido recebido</span>
+      <h1>Seu kit está pronto. <em>Baixe aqui.</em></h1>
+      <p class="sub">As 10 skills e o passo a passo de instalação estão num arquivo só. Uma cópia também vai para o seu e-mail.</p>
+
+      <a class="baixar" id="baixar" href="download/kit-conferido.zip" download="kit-conferido.zip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></svg>
+        Baixe aqui o Kit Conferido
+      </a>
+      <p class="arquivo"><b>kit-conferido.zip</b> · 514 KB · 10 skills</p>
+      <p class="seguro"><svg viewBox="0 0 24 24" fill="none" stroke="#118C56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>O arquivo só tem texto (<b>.md</b>) e scripts em Python que você pode abrir e ler antes de rodar. Nenhum programa executável.</span></p>
+
+      <div class="passos">
+        <h2>Instale em 3 passos, sem descompactar</h2>
+        <p class="apoio">O próprio Claude Code abre o arquivo e coloca cada skill no lugar certo.</p>
+        <ol>
+          <li><b>Baixe o arquivo</b> no botão acima. Ele vai para a pasta Downloads.</li>
+          <li><b>Abra o Claude Code e arraste o kit-conferido.zip para a janela.</b> Ele cola o caminho do arquivo na conversa.</li>
+          <li><b>Cole este pedido logo depois e aperte Enter:</b>
+            <div class="pedido" id="pedido">Instale as skills deste kit: descompacte o arquivo, copie o conteúdo da pasta skills para ~/.claude/skills e confira se as 10 skills aparecem. Depois leia o 00-LEIA-ME.md e me diga por onde começar.</div>
+            <button class="copiar" type="button" id="copiar">Copiar o pedido</button>
+          </li>
+        </ol>
+        <p class="depois">Com as skills instaladas, rode primeiro a <code>ficha-da-area</code>: ela registra o nome que a sua área dá às coisas, e as outras nove leem esse arquivo antes de começar. Depois teste a <code>conferencia-entre-duas-fontes</code> num caso que você já conferiu à mão nesta semana.</p>
+      </div>
+
+      <div class="assinam"><span class="fotos"><img src="assets/willy.jpg" alt="Willy Azevedo"><img src="assets/patrick.jpg" alt="Patrick Neuhaus"></span><p>Por <b>Willy Azevedo</b> e <b>Patrick Neuhaus</b><br>engenharia de IA da Artemis</p></div>
+    </div>
   </div>
   <div class="pattern" aria-hidden="true"></div>
 </section>
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  document.getElementById("baixar").addEventListener("click", function () {
+    window.dataLayer.push({ event: "kit_baixado", form_id: "kit-conferido", pagina: location.pathname });
+  });
+  var btn = document.getElementById("copiar");
+  btn.addEventListener("click", function () {
+    var txt = document.getElementById("pedido").textContent.trim();
+    var ok = function () { btn.textContent = "Copiado"; setTimeout(function () { btn.textContent = "Copiar o pedido"; }, 2000); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok, function () {});
+    else { var t = document.createElement("textarea"); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); ok(); } catch (e) {} t.remove(); }
+  });
+})();
+</script>
 </body>
 </html>
