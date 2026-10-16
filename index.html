@@ -301,6 +301,26 @@
             <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Onde você trabalha">
             <span class="erro">Escreva o nome da empresa.</span>
           </div>
+          <div class="campo" data-campo="cargo">
+            <label for="f-cargo">Cargo</label>
+            <input id="f-cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Ex.: coordenador de PCP">
+            <span class="erro">Escreva o seu cargo.</span>
+          </div>
+          <div class="campo" data-campo="setor">
+            <label for="f-setor">Setor da empresa</label>
+            <select id="f-setor" name="setor" required>
+              <option value="" disabled selected>Escolha</option>
+              <option>Indústria</option>
+              <option>Construção e engenharia</option>
+              <option>Logística e transporte</option>
+              <option>Agronegócio</option>
+              <option>Distribuição e atacado</option>
+              <option>Serviços</option>
+              <option>Comércio e varejo</option>
+              <option>Outro setor</option>
+            </select>
+            <span class="erro">Escolha o setor da empresa.</span>
+          </div>
           <div class="campo" data-campo="area">
             <label for="f-area">Sua área</label>
             <select id="f-area" name="area" required>
@@ -312,7 +332,8 @@
               <option>Engenharia</option>
               <option>Suprimentos e compras</option>
               <option>Logística</option>
-              <option>Outra</option>
+              <option>TI e sistemas</option>
+              <option>Diretoria ou gestão geral</option>
             </select>
             <span class="erro">Escolha a sua área.</span>
           </div>
@@ -575,7 +596,7 @@
       var invalido;
       if (nome === "email") invalido = !EMAIL_OK.test(v);
       else if (nome === "telefone") invalido = !/^\d{10,11}$/.test(v.replace(/\D/g, ""));
-      else if (nome === "area") invalido = !v;
+      else if (nome === "area" || nome === "setor") invalido = !v;
       else invalido = v.length < 2;
       c.classList.toggle("invalido", invalido);
       if (invalido) { ok = false; if (!primeiro) primeiro = c; }
@@ -601,6 +622,8 @@
       telefone: valor(form, "telefone").replace(/\D/g, ""),
       empresa: valor(form, "empresa"),
       area: valor(form, "area"),
+      cargo: valor(form, "cargo"),
+      setor: valor(form, "setor"),
       form_id: CONFIG.formId,
       external_id: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(36).slice(2),
       pagina: location.pathname,
@@ -625,6 +648,12 @@
         campos.set("mauticform[telefone]", payload.telefone);
         campos.set("mauticform[empresa]", payload.empresa);
         campos.set("mauticform[area]", payload.area);
+        campos.set("mauticform[cargo]", payload.cargo);
+        campos.set("mauticform[setor]", payload.setor);
+        campos.set("mauticform[utm_source]", payload.utm_source);
+        campos.set("mauticform[utm_medium]", payload.utm_medium);
+        campos.set("mauticform[utm_campaign]", payload.utm_campaign);
+        campos.set("mauticform[utm_content]", payload.utm_content);
         campos.set("mauticform[return]", "");
         campos.set("mauticform[messenger]", "1");
         fetch(CONFIG.mautic.url + (location.search ? "&" + location.search.slice(1) : ""), {
@@ -639,6 +668,7 @@
       form_id: CONFIG.formId,
       pagina: location.pathname,
       area: payload.area,
+      setor: payload.setor,
       utm_source: payload.utm_source,
       utm_medium: payload.utm_medium,
       utm_campaign: payload.utm_campaign,
